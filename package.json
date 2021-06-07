@@ -1,0 +1,37 @@
+{
+  "name": "@coon-js/extjs-link",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "NPM package providing quick setup for symlinks to an existing ExtJS build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "bin.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coon-js/extjs-link.git"
+  },
+  "keywords": [
+    "l8",
+    "l8js",
+    "coon.js",
+    "coon-js",
+    "conjoon",
+    "build",
+    "extjs",
+    "sencha",
+    "postinstall",
+    "script"
+  ],
+  "author": "Thorsten Suckow-Homberg <thorsten@suckow-homberg.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coon-js/extjs-link/issues"
+  },
+  "homepage": "https://github.com/coon-js/extjs-link#readme",
+  "devDependencies": {
+    "path": "^0.12.7",
+    "symlink-dir": "^5.0.1"
+  }
+}
