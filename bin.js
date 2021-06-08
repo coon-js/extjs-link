@@ -27,55 +27,99 @@
 import * as readline from "readline";
 import symlinkDir from "symlink-dir";
 import path from "path";
+import * as util from "./util.js";
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-const quit = (input) => {
-    if (input === "/q") {
-        rl.close();
-    }
+/**
+ * - Reads path to ExtJS SDK
+ * - Reads destination for symlink
+ * - Creates Symlink to ExtJS SDK
+ * - Builds .extjs-link.conf.json
+ */
+const defaults = {
+    path: "../../../ext-7.4.0/build/",
+    symlink: "build/extjs-link",
+    configFile: "./.extjs-link.conf.json",
+    templateFile: "/.extjs-link.conf.template.json",
+    relativePath: "../",
 };
 
-let defaultPath    = "../../../ext-7.4.0/build/",
-    defaultSymlink = "build/extjs-build";
+/**
+ * Readline.
+ * 
+ * @type {Interface}
+ */
+const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    }),
+    quit = (cmd) => util.quit(cmd, rl),
+    l = console.log;
 
-const log = console.log;
-log("---- [extjs-build]   SymLink to ExtJS libraries");
-log("----                         (enter /q to quit)");
-log("---- ");
-rl.question("ExtJS build ([" + defaultPath + "]): ",  input => {
+
+// +--------------------------------------------
+// |                  int main
+// +--------------------------------------------
+let defaultPath    = defaults.path,
+    defaultSymlink = defaults.symlink,
+    confFilename = defaults.configFile,
+    defaultRelative = defaults.relativePath;
+l([
+"-------------------------------------------------------",
+"----             [@coon-js/extjs-link]             ----",
+"----             SymLink to ExtJS SDK              ----",
+"----     https://github.com/coon-js/extjs-link     ----",
+"----                                               ----",
+"----                (\"q\" to quit)                  ----",
+"-------------------------------------------------------"
+].join("\n"));
+
+rl.question(`path to ExtJS SDK ( ${defaultPath} ): `,  input => {
     quit(input);
-
     defaultPath = path.resolve(input ? input : defaultPath);
+    l(`setting ExtJS SDK: ${defaultPath}`);
 
-    rl.question("symlink ([" + defaultSymlink + "]): ",  input => {
+    rl.question(`symlink ( ${defaultSymlink} ): `,  input => {
         quit(input);
 
         defaultSymlink = path.resolve(input ? input : defaultSymlink);
+        l(`setting symlink: ${defaultPath}`);
 
 
-        rl.question("Creating symlink at " + defaultSymlink + " to " + defaultPath + ", is that okay? ([yes], no): ", input => {
+        rl.question(`relative path to script requiring the symlink ( ${defaultRelative} ): `,  input => {
+            quit(input);
 
-            quit(input === "no" ? "/q" : "");
+            defaultRelative = input ? input : defaultRelative;
+            l(`setting relative: ${defaultRelative}`);
 
-            symlinkDir(defaultPath, defaultSymlink).then(result => {
-                console.log("symlink-dir says: ", result);
-                rl.close();
-            })
-                .catch(err => {
+            rl.question(`Creating symlink at ${defaultSymlink} to  ${defaultPath}, is that okay? (yes), no: `, input => {
+
+                quit(input === "no" ? "q" : input);
+
+                // create symlink
+                symlinkDir(defaultPath, defaultSymlink).then(result => {
+
+                    l("symlink-dir says: ", result);
+
+                    // save config
+                    l(`Writing config to ${confFilename}...`);
+                    util.writeConfig(defaultSymlink, defaultRelative, confFilename, defaults);
+                    l("... done!");
+
+                    rl.close();
+
+                }).catch(err => {
+
                     console.error("symlink-dir says: ", err);
                     rl.close();
-                });
-        });
 
+                });
+            });
+        });
     });
 
 });
 
 rl.on("close", () =>  {
-    console.log("\nbye.");
+    l("\nbye.");
     process.exit(0);
 });
