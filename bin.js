@@ -40,7 +40,7 @@ const defaults = {
     symlink: "build/extjs-link",
     configFile: "./.extjs-link.conf.json",
     templateFile: "/.extjs-link.conf.template.json",
-    relativePath: "../",
+    relativePath: "../"
 };
 
 /**
@@ -64,13 +64,13 @@ let defaultPath    = defaults.path,
     confFilename = defaults.configFile,
     defaultRelative = defaults.relativePath;
 l([
-"-------------------------------------------------------",
-"----             [@coon-js/extjs-link]             ----",
-"----             SymLink to ExtJS SDK              ----",
-"----     https://github.com/coon-js/extjs-link     ----",
-"----                                               ----",
-"----                (\"q\" to quit)                  ----",
-"-------------------------------------------------------"
+    "-------------------------------------------------------",
+    "----             [@coon-js/extjs-link]             ----",
+    "----             SymLink to ExtJS SDK              ----",
+    "----     https://github.com/coon-js/extjs-link     ----",
+    "----                                               ----",
+    "----                (\"q\" to quit)                  ----",
+    "-------------------------------------------------------"
 ].join("\n"));
 
 rl.question(`path to ExtJS SDK ( ${defaultPath} ): `,  input => {

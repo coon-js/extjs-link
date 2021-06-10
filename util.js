@@ -55,7 +55,7 @@ const includePath = (symlink, relativePath) => {
 
 /**
  * Returns a json-conf with default locations to toolkit specific files
- * for copnvenient access in the calling module.
+ * for convenient access in the calling module.
  *
  * @param {String} includePath
  * @returns {Object}
