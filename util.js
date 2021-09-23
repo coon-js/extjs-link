@@ -62,12 +62,12 @@ const includePath = (symlink, relativePath) => {
  */
 const getJsonConfig = (includePath, defaults) => {
 
-    const pd = l8.rpl("file:///", "", import.meta.url),
+    const pd = l8.replace("file:///", "", import.meta.url),
         jsonConfig = JSON.parse(fs.readFileSync(path.dirname(pd) + defaults.templateFile));
 
 
-    return l8.vst(jsonConfig, key => l8.unify(
-        l8.rpl("\\", "/", `${includePath}/${key}`), "/"
+    return l8.visit(jsonConfig, key => l8.unify(
+        l8.replace("\\", "/", `${includePath}/${key}`), "/"
     ));
 };
 
