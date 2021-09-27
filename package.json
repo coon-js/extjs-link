@@ -1,12 +1,13 @@
 {
   "name": "@coon-js/extjs-link",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "description": "NPM package providing quick setup for symlinks to an existing ExtJS build",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall" : "node-git-hooks"
+    "prepare": "npx node-git-hooks",
+    "postversion": "git push && git push --tags"
   },
   "bin": "bin.js",
   "repository": {
@@ -31,11 +32,13 @@
     "url": "https://github.com/coon-js/extjs-link/issues"
   },
   "homepage": "https://github.com/coon-js/extjs-link#readme",
-  "devDependencies": {
-    "@l8js/l8": "file:../../@l8js/l8",
-    "eslint": "^7.32.0",
-    "node-git-hooks": "^1.0.6",
+  "dependencies": {
+    "@l8js/l8": "^0.3.6",
     "symlink-dir": "^5.0.1",
     "write": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "node-git-hooks": "^1.0.6"
   }
 }
