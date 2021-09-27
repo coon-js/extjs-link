@@ -1,0 +1,20 @@
+{
+
+    "css": {
+        "modern": "/modern/theme-triton/resources/theme-triton-all.css",
+        "classic": "/classic/theme-triton/resources/theme-triton-all.css"
+    },
+
+    "js": [{
+        "classic": [
+            "/ext-all-debug.js",
+            "/packages/ux/classic/ux-debug.js"
+        ],
+        "modern": [
+            "/ext-modern-all-debug.js",
+            "/packages/ux/modern/ux-debug.js"
+        ]
+    }]
+
+
+}
