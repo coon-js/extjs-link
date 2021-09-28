@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/coon-js/extjs-link#readme",
   "dependencies": {
-    "@l8js/l8": "^0.3.6",
+    "@l8js/l8": "^0.4.1",
     "symlink-dir": "^5.0.1",
     "write": "^2.0.0"
   },
