@@ -13,6 +13,12 @@ to the required sources properly.
 npm install --save-dev @coon-js/extjs-link
 ```
 
+Use 
+```
+npm run build:dev
+```
+for creating the dev environment.
+
 ## Usage
 Once the script is invoked, it will guide you through the process of creating the symlinks.
 ```
