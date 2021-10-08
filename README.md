@@ -1,4 +1,5 @@
-# @coon-js/extjs-link
+# @coon-js/extjs-link ![MIT](https://img.shields.io/npm/l/@coon-js/extjs-link) [![npm version](https://badge.fury.io/js/@coon-js%2Fextjs-link.svg)](https://badge.fury.io/js/@coon-js%2Fextjs-link)
+
 NPM package providing quick setup for symlinks to an existing ExtJS build.
 
 Sencha does not provide builds via their NPM repository. This package
@@ -9,19 +10,19 @@ An existing ExtJS-SDK containing builds on your harddrive. The binary of this pa
 to the required sources properly.
 
 ## Installation
-```
-npm install --save-dev @coon-js/extjs-link
+```bash
+$ npm install --save-dev @coon-js/extjs-link
 ```
 
 Use 
-```
-npm run build:dev
+```bash
+$ npm run build:dev
 ```
 for creating the dev environment.
 
 ## Usage
 Once the script is invoked, it will guide you through the process of creating the symlinks.
-```
-npx extjs-link
+```bash
+$ npx extjs-link
 ```
 
