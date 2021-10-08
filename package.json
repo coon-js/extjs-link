@@ -7,7 +7,11 @@
   "scripts": {
     "build:dev": "npx node-git-hooks",
     "postversion": "git push && git push --tags",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version",
+    "release:patch": "standard-version --release-as patch && npm run postversion",
+    "release:minor": "standard-version --release-as minor && npm run postversion",
+    "release:major": "standard-version --release-as major && npm run postversion"
   },
   "bin": "bin.js",
   "repository": {
@@ -39,6 +43,9 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
-    "node-git-hooks": "^1.0.6"
+    "node-git-hooks": "^1.0.6",
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "standard-version": "^9.3.1"
   }
 }
