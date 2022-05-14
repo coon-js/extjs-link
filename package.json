@@ -1,6 +1,6 @@
 {
   "name": "@coon-js/extjs-link",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "type": "module",
   "description": "NPM package providing quick setup for symlinks to an existing ExtJS build",
   "main": "index.js",
