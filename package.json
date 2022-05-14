@@ -1,6 +1,6 @@
 {
   "name": "@coon-js/extjs-link",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "description": "NPM package providing quick setup for symlinks to an existing ExtJS build",
   "main": "index.js",
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/coon-js/extjs-link#readme",
   "dependencies": {
-    "@l8js/l8": "^0.7.0",
+    "@l8js/l8": "^0.7.1",
     "symlink-dir": "^5.0.1",
     "write": "^2.0.0"
   },
