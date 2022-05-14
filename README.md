@@ -6,7 +6,7 @@ Sencha does not provide builds via their NPM repository. This package
 makes sure that ExtJS-sources are available when testing and developing stand-alone packages.
 
 ## Requirements
-An existing ExtJS-SDK containing builds on your harddrive. The binary of this package guides you through the process of setting the symlinks
+An existing ExtJS-SDK containing builds on your disk. The binary of this package guides you through the process of setting the symlinks
 to the required sources properly.
 
 ## Installation
